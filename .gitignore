@@ -4,3 +4,5 @@
 *debug.py
 .vscode
 **/.DS_Store
+nerdss
+*.ipynb_checkpoints
