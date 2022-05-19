@@ -79,7 +79,8 @@ class Oscillator:
 		#number of samples for FFT		
 		self.nS = self.N/self.jump 
 		self.dF = self.sample_rate/self.nS  
-		self.idealF = self.getFrequencies(self.ideal) 		 	
+		self.idealF = self.getFrequencies(self.ideal) 		
+		self.idealFreq = 0.3 	
 		thresholdOne = -(self.nS/2)*100 #10nM -+ from ideal signal harmonics       
 		thresholdTwo = 0.6  
 		self.minAmp = 1
@@ -140,10 +141,11 @@ class Oscillator:
 		fftData = self.getFrequencies(p1)      
 		fftData = np.array(fftData) 
 		#find peaks using very low threshold and minimum distance
-		indexes = peakutils.indexes(fftData, thres=0.02/max(fftData), min_dist=1)  
+		indexes = peakutils.indexes(fftData, thres=0.02/max(fftData), min_dist=1) 
+		peaknumber = peakutils.indexes(p1, thres=0.02/max(fftData), min_dist=1)
 		#in case of no oscillations return 0 
 		if len(indexes) == 0:     
-			return 0,  
+			return 0, 0  
 		#if amplitude is greater than 400nM
 		amp = np.max(fftData[indexes])
 		if amp > self.maxAmp: 
@@ -151,11 +153,11 @@ class Oscillator:
 		fitSamples = fftData[indexes]  			
 		std = self.getSTD(indexes, fftData, 1)  
 		diff = self.getDif(indexes, fftData)  
-		cost = std + diff
+		cost = std + diff - abs(self.idealFreq - (peaknumber/self.T))
 		#print(cost)   
 		if getAmplitude:
 			return cost, amp
-		return cost, 
+		return cost, peaknumber
 		
 	def isViableFitness(self, fit):
 		return fit >= self.threshold
@@ -452,8 +454,9 @@ class Solver:
 				print("Number of viable points: " + str(len(nominalValsMode))) 
 
 				print(self.model.isViable(rdm_ind))
-				print(self.model.eval(rdm_ind))
+				print(self.model.eval(rdm_ind)[1])
 				
+
 				#self.model.plotModel(rdm_ind)
 
 
