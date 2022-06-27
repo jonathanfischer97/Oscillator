@@ -1,7 +1,6 @@
 .DS_Store
 *.pdf
 *.p
-*debug.py
 .vscode
 **/.DS_Store
 nerdss
