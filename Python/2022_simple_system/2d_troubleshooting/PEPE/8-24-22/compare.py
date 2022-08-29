@@ -134,26 +134,26 @@ def main():
 
     #HERE#
     input = [
-    0.00017231469303004518 , #ka1 #change 
-    62.0744649226743 , #kb1 #change 
-    106.20769756077478 , #kcat1 #change 
-    0.0033210781343476934 , #ka2 #change 
-    1.0389725994826684 , #kb2 #change 
-    0.20485344945681705 , #ka3 #change 
-    212.82769039576846 , #kb3 #change 
-    0.00041246580582216577 , #ka4 #change 
-    0.09379815810581062 , #kb4 #change 
-    0.0033210781343476934 , #ka7 #change 
-    40.78659732051864 , #kb7 #change 
-    4.434093672504077 , #kcat7 #change 
-    750.0 , #y #change 
-    1.0 , #L #change 
-    0.0 , #Lp #change 
-    903.45 , #K #change 
-    60.23000000000001 , #P #change 
-    90.345 , #LK #change 
-    0.0 , #A #change 
-    180.69 , #Lpa #change 
+    0.00040370279168983574 , #ka1 #change 
+    57.11277101514493 , #kb1 #change 
+    362.1374668043775 , #kcat1 #change 
+    0.003213372917272041 , #ka2 #change 
+    1.5425586046848487 , #kb2 #change 
+    0.25456803713943227 , #ka3 #change 
+    266.6560866362819 , #kb3 #change 
+    6.488748769693232e-05 , #ka4 #change 
+    0.16285136809161127 , #kb4 #change 
+    0.004385696809106526 , #ka7 #change 
+    31.04091356562089 , #kb7 #change 
+    31.5155642816625 , #kcat7 #change 
+    734.834057877303 , #y #change 
+    0.0 , #L #change 
+    903.45 , #Lp #change 
+    60.23000000000001 , #K #change 
+    90.345 , #P #change 
+    0.0 , #LK #change 
+    271.035 , #A #change 
+    0.0 , #Lpa #change 
     0.0 , #LpAK #change 
     0.0 , #LpAP #change 
     0.0 , #LpAPLp #change 
